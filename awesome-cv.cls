@@ -582,6 +582,11 @@
   \\
 }
 
+\newcommand*{\cvhonornb}[3]{
+	\honordatestyle{#3} & \honortitlestyle{#1} & \honorlocationstyle{#2}
+	\\
+}
+
 \newenvironment{cvpubs}{
   \begin{center}
     \setlength\tabcolsep{0pt}
