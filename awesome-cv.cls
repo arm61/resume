@@ -602,6 +602,21 @@
   \\
 }
 
+\newenvironment{cvpubys}{
+	\begin{center}
+		\setlength\tabcolsep{0pt}
+		\setlength{\extrarowheight}{3pt}
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.cm} L{16.0cm}}
+		}{
+	\end{tabular*}
+\end{center}
+}
+
+\newcommand*{\cvpuby}[5]{
+	\honordatestyle{#5} & \honortitlestyle{#1}, \honortitlestyle{#2}. \honortitlestyle{#3}. \honortitlestyle{#4}
+	\\
+}
+
 % Define an environment for cvskill
 \newenvironment{cvskills}{
   \begin{center}
