@@ -228,7 +228,7 @@
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
-\newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
+\newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text} #1}}
 \newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 
 % For elements of entry
@@ -295,6 +295,10 @@
 % Defines writer's email (optional)
 % Usage: \email{<email adress>}
 \newcommand*{\email}[1]{\def\@email{#1}}
+
+% Defines writer's email (optional)
+% Usage: \email{<email adress>}
+\newcommand*{\emailb}[1]{\def\@emailb{#1}}
 
 % Defines writer's homepage (optional)
 % Usage: \homepage{<url>}
@@ -420,8 +424,18 @@
               \setbool{istart}{false}
             }
             {\@headersocialsep}
-          \href{mailto:\@email}{\faEnvelope\ \@email}
+          \href{mailto:\@email}{\faUniversity\ \@email}
         }
+        \ifthenelse{\isundefined{\@emailb}}
+          {}
+          {
+            \ifbool{isstart}
+              {
+                \setbool{istart}{false}
+              }
+              {\@headersocialsep}
+            \href{mailto:\@emailb}{\faDiamond\ \@emailb}
+          }
       \ifthenelse{\isundefined{\@homepage}}
         {}
         {
