@@ -444,7 +444,7 @@
               \setbool{istart}{false}
             }
             {\@headersocialsep}
-          \href{http://\@homepage}{\faHome\ \@homepage}
+          \href{https://\@homepage}{\faHome\ \@homepage}
         }
       \ifthenelse{\isundefined{\@github}}
         {}
