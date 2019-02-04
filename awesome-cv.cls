@@ -108,7 +108,7 @@
 %-------------------------------------------------------------------------------
 %% Page Layout
 % Configure page margins with geometry
-\geometry{left=1.5cm, top=1.0cm, right=1.5cm, bottom=1.5cm, footskip=.5cm}
+\geometry{left=1.5cm, top=0.9cm, right=1.5cm, bottom=1.4cm, footskip=.5cm}
 
 %% Header & Footer
 % Set offset to each header and offset
@@ -620,7 +620,7 @@
 	\begin{center}
 		\setlength\tabcolsep{0pt}
 		\setlength{\extrarowheight}{3pt}
-		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.cm} L{17.0cm}}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.cm} L{17.0cm}}
 		}{
 	\end{tabular*}
 \end{center}
@@ -636,7 +636,7 @@
   \begin{center}
     \setlength\tabcolsep{1ex}
     \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} R{2.cm} L{16.0cm}}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} R{2.cm} L{15.0cm}}
 }{
     \end{tabular*}
   \end{center}
