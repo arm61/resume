@@ -626,8 +626,8 @@
 \end{center}
 }
 
-\newcommand*{\cvpuby}[5]{
-	\honordatestyle{#5} & \honortitlestyle{#1}, \honortitlestyle{#2}. \honortitlestyle{#3}. \honortitlestyle{#4}
+\newcommand*{\cvpuby}[6]{
+	\honordatestyle{#6} & \honortitlestyle{#1}, \honortitlestyle{#2}. \emph{\honortitlestyle{#3}}, \honortitlestyle{#4} \honortitlestyle{#5}
 	\\
 }
 
