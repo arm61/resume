@@ -108,7 +108,7 @@
 %-------------------------------------------------------------------------------
 %% Page Layout
 % Configure page margins with geometry
-\geometry{left=1.5cm, top=0.9cm, right=1.5cm, bottom=1.4cm, footskip=.5cm}
+\geometry{left=1.5cm, top=0.7cm, right=1.5cm, bottom=1.2cm, footskip=.5cm}
 
 %% Header & Footer
 % Set offset to each header and offset
@@ -619,15 +619,16 @@
 \newenvironment{cvpubys}{
 	\begin{center}
 		\setlength\tabcolsep{0pt}
-		\setlength{\extrarowheight}{3pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.cm} L{17.0cm}}
+		\setlength{\extrarowheight}{-3pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{1cm} p{17.0cm}}
+    %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.cm} L{17.0cm}}
 		}{
 	\end{tabular*}
 \end{center}
 }
 
-\newcommand*{\cvpuby}[6]{
-	\honordatestyle{#6} & \honortitlestyle{#1}, \honortitlestyle{#2}. \emph{\honortitlestyle{#3}}, \honortitlestyle{#4} \honortitlestyle{#5}
+\newcommand*{\cvpuby}[7]{
+	\begin{flushright}\honortitlestyle{#7}\ \ \ \ \end{flushright} & \honortitlestyle{#1}, \honortitlestyle{#2}, \emph{\honortitlestyle{#4}}, \honortitlestyle{#5}, \honortitlestyle{#3}. \honortitlestyle{#6}
 	\\
 }
 
