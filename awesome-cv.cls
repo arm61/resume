@@ -583,8 +583,9 @@
 \newenvironment{cvhonors}{
   \begin{center}
     \setlength\tabcolsep{0pt}
-    \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{2.cm} L{12.0cm} R{3.cm}}
+    \setlength{\extrarowheight}{-7pt}
+    %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{1cm} p{18.0cm}}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{1.cm} p{13.0cm} p{3.cm}}
 }{
     \end{tabular*}
   \end{center}
@@ -619,7 +620,7 @@
 \newenvironment{cvpubys}{
 	\begin{center}
 		\setlength\tabcolsep{0pt}
-		\setlength{\extrarowheight}{-3pt}
+		\setlength{\extrarowheight}{-5pt}
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{1cm} p{18.0cm}}
     %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.cm} L{17.0cm}}
 		}{
@@ -628,7 +629,7 @@
 }
 
 \newcommand*{\cvpuby}[7]{
-	\begin{flushright}\honortitlestyle{#7}\ \ \ \ \end{flushright} & \honortitlestyle{#1}, \honortitlestyle{#2}, \emph{\honortitlestyle{#4}}, \honortitlestyle{#5}, \honortitlestyle{#3}. \honortitlestyle{#6}
+	\begin{flushright}\honortitlestyle{#7}\ \ \ \ \end{flushright} & \honortitlestyle{#1} \honortitlestyle{#2} \emph{\honortitlestyle{#4}} \honortitlestyle{#5} \honortitlestyle{#3} \honortitlestyle{#6}
 	\\
 }
 
@@ -636,8 +637,18 @@
 \newenvironment{cvskills}{
   \begin{center}
     \setlength\tabcolsep{1ex}
-    \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} R{2.cm} L{15.0cm}}
+    \setlength{\extrarowheight}{-5pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{1.2cm} p{16.8cm}}
+}{
+    \end{tabular*}
+  \end{center}
+}
+% Define an environment for cvskill
+\newenvironment{cvskillsy}{
+  \begin{center}
+    \setlength\tabcolsep{1ex}
+    \setlength{\extrarowheight}{-5pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{0.5cm} p{17.5cm}}
 }{
     \end{tabular*}
   \end{center}
