@@ -108,7 +108,7 @@
 %-------------------------------------------------------------------------------
 %% Page Layout
 % Configure page margins with geometry
-\geometry{left=1.cm, top=1.cm, right=1.cm, bottom=1.cm, footskip=.5cm}
+\geometry{left=1.cm, top=0.75cm, right=1.cm, bottom=0.75cm, footskip=.5cm}
 
 %% Header & Footer
 % Set offset to each header and offset
@@ -256,7 +256,9 @@
 \newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
 
 % For elements of the cover letter
-\newcommand*{\paragraphstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
+\newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
+
+%\newcommand*{\paragraphstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
 \newcommand*{\recipientaddressstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\recipienttitlestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\lettertitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\bfseries\color{darktext} \underline{#1}}}
@@ -388,7 +390,8 @@
 % Use to execute conditional statements by checking empty string
 \newcommand*{\ifempty}[3]{\ifthenelse{\isempty{#1}}{#2}{#3}}
 
-
+\newcommand{\acvSectionTopSkip}{3mm}
+\newcommand{\acvSectionContentTopSkip}{2.5mm}
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
 %-------------------------------------------------------------------------------
@@ -535,11 +538,22 @@
   \subsectionstyle{#1}
 }
 
+% Define a paragraph for CV
+\newenvironment{cvparagraph}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-3mm}
+  \paragraphstyle
+}{%
+  \par
+%  \vspace{2mm}
+}
+
 % Define an environment for cventry
 \newenvironment{cventries}{
   \begin{center}
 }{
   \end{center}
+  \vspace{-0.5cm}  
 }
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
@@ -551,7 +565,24 @@
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-    \multicolumn{2}{L{19cm}}{\descriptionstyle{#5}} \\
+    \multicolumn{2}{L{19cm}}{\descriptionstyle{#5}} 
+  \end{tabular*}
+}
+
+% Define an environment for cventry
+\newenvironment{cventriesy}{
+  \begin{center}
+}{
+  \end{center}
+  \vspace{-0.5cm}
+}
+% Define an entry of cv information
+% Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
+\newcommand*{\cventryy}[1]{
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{3pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{19cm}}
+    \descriptionstyle{#1}  
   \end{tabular*}
 }
 
@@ -609,6 +640,7 @@
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{2.cm} L{17.0cm}}
 }{
     \end{tabular*}
+  \vspace{-0.2cm}
   \end{center}
 }
 
@@ -625,6 +657,7 @@
     %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.cm} L{17.0cm}}
 		}{
 	\end{tabular*}
+  \vspace{-0.6cm}
 \end{center}
 }
 
@@ -672,7 +705,18 @@
   \end{justify}
   \vspace{-2mm}
 }
-
+% Define an environment for cvitems(for cventry)
+\newenvironment{cvitemsy}{
+  \vspace{-4mm}
+  \begin{justify}
+  \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelitemi}{\bullet}
+}{
+  \end{itemize}
+  \end{justify}
+  \vspace{-2mm}
+}
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of Cover Letter
@@ -685,13 +729,13 @@
 
 % Define a paragraph for cvletter
 % Usage: \cvparagraph{<paragraph-title>}
-\newcommand{\cvparagraph}[1]{
-  \par\addvspace{2.5ex}
-  \phantomsection{}
-  \paragraphstyle{#1}
-  \color{gray}\vhrulefill{0.9pt}
-  \par\nobreak\addvspace{0.4ex}
-}
+%\newcommand{\cvparagraph}[1]{
+%  \par\addvspace{2.5ex}
+%  \phantomsection{}
+%  \paragraphstyle{#1}
+%  \color{gray}\vhrulefill{0.9pt}
+%  \par\nobreak\addvspace{0.4ex}
+%}
 
 % Define a title of the cover letter
 % Usage: \makelettertitle
