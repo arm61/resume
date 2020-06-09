@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get Xelatex
-        run: sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-xetex latex-xcolor lmodern texlive-science-doc texlive-science
+        run: sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-xetex lmodern texlive-science-doc texlive-science
       - name: Run latex
         run: xelatex -interaction=nonstopmode -halt-on-error resume.tex
       - name: Commit
