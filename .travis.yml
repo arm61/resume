@@ -4,6 +4,7 @@ before_install:
 script:
 - xelatex -interaction=nonstopmode -halt-on-error resume.tex
 - cd $TRAVIS_BUILD_DIR
+- git checkout master
 - git add -f ./resume.pdf
 - git -c user.name='travis' -c user.email='travis' commit -m "Building ARM's CV"
 - git push -q -f https://$GITHUB_USER:$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG
