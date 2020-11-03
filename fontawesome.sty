@@ -12,8 +12,14 @@
 \newfontfamily{\FA}[
 Path=fonts/
 ]{FontAwesome}
+\newfontfamily{\FAO}[
+Path=fonts/
+]{FontAwesomeOld}
 % Generic command displaying an icon by its name.
 \newcommand*{\faicon}[1]{{
+  \FA\csname faicon@#1\endcsname
+}}
+\newcommand*{\faicono}[1]{{
   \FA\csname faicon@#1\endcsname
 }}
 
@@ -290,9 +296,9 @@ Path=fonts/
 \expandafter\def\csname faicon@gift\endcsname {\symbol{"F06B}} \def\faGift {{\FA\csname faicon@gift\endcsname}}
 \expandafter\def\csname faicon@git\endcsname {\symbol{"F1D3}} \def\faGit {{\FA\csname faicon@git\endcsname}}
 \expandafter\def\csname faicon@git-square\endcsname {\symbol{"F1D2}} \def\faGitSquare {{\FA\csname faicon@git-square\endcsname}}
-\expandafter\def\csname faicon@github\endcsname {\symbol{"F09B}} \def\faGithub {{\FA\csname faicon@github\endcsname}}
-\expandafter\def\csname faicon@github-alt\endcsname {\symbol{"F113}} \def\faGithubAlt {{\FA\csname faicon@github-alt\endcsname}}
-\expandafter\def\csname faicon@github-square\endcsname {\symbol{"F092}} \def\faGithubSquare {{\FA\csname faicon@github-square\endcsname}}
+\expandafter\def\csname faicono@github\endcsname {\symbol{"F09B}} \def\faGithub {{\FAO\csname faicono@github\endcsname}}
+\expandafter\def\csname faicono@github-alt\endcsname {\symbol{"F113}} \def\faGithubAlt {{\FAO\csname faicono@github-alt\endcsname}}
+\expandafter\def\csname faicono@github-square\endcsname {\symbol{"F092}} \def\faGithubSquare {{\FAO\csname faicono@github-square\endcsname}}
 \expandafter\def\csname faicon@gittip\endcsname {\symbol{"F184}} \def\faGittip {{\FA\csname faicon@gittip\endcsname}}
 \expandafter\def\csname faicon@glass\endcsname {\symbol{"F000}} \def\faGlass {{\FA\csname faicon@glass\endcsname}}
 \expandafter\def\csname faicon@globe\endcsname {\symbol{"F0AC}} \def\faGlobe {{\FA\csname faicon@globe\endcsname}}
