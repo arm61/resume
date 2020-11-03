@@ -437,7 +437,7 @@
                 \setbool{istart}{false}
               }
               {\@headersocialsep}
-            \href{mailto:\@emailb}{\faDiamond\ \@emailb}
+            \href{mailto:\@emailb}{\faAtom\ \@emailb}
           }
       \ifthenelse{\isundefined{\@homepage}}
         {}
