@@ -9,7 +9,7 @@ jobs:
       - name: Get Xelatex
         run: sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-xetex lmodern texlive-science-doc texlive-science
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Run latex
         run: xelatex -interaction=nonstopmode -halt-on-error resume.tex
       - name: Commit
