@@ -691,7 +691,7 @@
   \begin{center}
     \setlength\tabcolsep{1ex}
     \setlength{\extrarowheight}{-5pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{2.1cm} p{15.9cm}}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{2.4cm} p{15.6cm}}
 }{
     \end{tabular*}
   \end{center}
