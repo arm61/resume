@@ -686,6 +686,16 @@
     \end{tabular*}
   \end{center}
 }
+% Define an environment for cvskillx
+\newenvironment{cvskillsx}{
+  \begin{center}
+    \setlength\tabcolsep{1ex}
+    \setlength{\extrarowheight}{-5pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{4cm} p{19.6cm}}
+}{
+    \end{tabular*}
+  \end{center}
+}
 % Define a line of cv information(skill)
 % Usage: \cvskill{<type>}{<skillset>}
 \newcommand*{\cvskill}[2]{
