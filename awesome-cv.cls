@@ -707,7 +707,7 @@
 \newenvironment{cvitems}{
   \vspace{-4mm}
   \begin{justify}
-  \begin{itemize}[leftmargin=4ex, nosep, noitemsep]
+  \begin{itemize}[leftmargin=3ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{--}
 }{
@@ -719,7 +719,7 @@
 \newenvironment{cvitemsy}{
   \vspace{-4mm}
   \begin{justify}
-  \begin{itemize}[leftmargin=4ex, nosep, noitemsep]
+  \begin{itemize}[leftmargin=3ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{--}
 }{
