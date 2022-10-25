@@ -709,7 +709,7 @@
   \begin{justify}
   \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
-    \renewcommand{\labelitemi}{\:\:\:--}
+    \renewcommand{\labelitemi}{\hspace{1cm}--}
 }{
   \end{itemize}
   \end{justify}
@@ -721,7 +721,7 @@
   \begin{justify}
   \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
-    \renewcommand{\labelitemi}{\:\:\:--}
+    \renewcommand{\labelitemi}{\hspace{1cm}--}
 }{
   \end{itemize}
   \end{justify}
