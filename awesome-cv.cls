@@ -658,7 +658,7 @@
 \newenvironment{benumerate}[1]{
     \let\oldItem\item
     \def\item{\addtocounter{enumi}{-2}\oldItem}
-    \begin{enumerate}[font=\honordatestyle,rightmargin=1cm,itemsep=-5pt]
+    \begin{enumerate}[font=\honordatestyle,itemsep=-5pt,leftmargin=0.6cm]
     \setcounter{enumi}{#1}
     \addtocounter{enumi}{1}
 }{
