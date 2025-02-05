@@ -108,7 +108,7 @@
 %-------------------------------------------------------------------------------
 %% Page Layout
 % Configure page margins with geometry
-\geometry{left=1.cm, top=1.cm, right=1.cm, bottom=1.cm, footskip=.05cm}
+\geometry{left=0.75cm, top=0.75cm, right=0.75cm, bottom=0.75cm, footskip=.05cm}
 
 %% Header & Footer
 % Set offset to each header and offset
@@ -236,7 +236,7 @@
 \newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
-\newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
+\newcommand*{\descriptionstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of subentry
 \newcommand*{\subentrytitlestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\mdseries\color{graytext} #1}}
@@ -557,15 +557,26 @@
 }
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
-\newcommand*{\cventry}[5]{
+\newcommand*{\cventry}[4]{
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{14cm} R{5cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{13cm} R{4cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-    \multicolumn{2}{L{19cm}}{\descriptionstyle{#5}} 
+  \end{tabular*}
+}
+
+\newcommand*{\cventryyy}[5]{
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{13cm} R{4cm}}
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+    \multicolumn{2}{L{19.4cm}}{\descriptionstyle{#5}} 
   \end{tabular*}
 }
 
@@ -581,7 +592,7 @@
 \newcommand*{\cventryy}[1]{
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{3pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{19cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{17cm}}
     \descriptionstyle{#1}  
   \end{tabular*}
 }
@@ -644,6 +655,16 @@
   \end{center}
 }
 
+\newenvironment{benumerate}[1]{
+    \let\oldItem\item
+    \def\item{\addtocounter{enumi}{-2}\oldItem}
+    \begin{enumerate}[font=\honordatestyle,rightmargin=1cm,itemsep=-5pt]
+    \setcounter{enumi}{#1}
+    \addtocounter{enumi}{1}
+}{
+    \end{enumerate}
+}
+
 \newcommand*{\cvpub}[3]{
   \honordatestyle{#3} & \honorpositionstyle{#1}, \honortitlestyle{#2}
   \\
@@ -652,18 +673,18 @@
 \newenvironment{cvpubys}{
 	\begin{center}
 		\setlength\tabcolsep{0pt}
-		\setlength{\extrarowheight}{-5pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{1cm} p{18.0cm}}
-    %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.cm} L{17.0cm}}
-		}{
-	\end{tabular*}
-  \vspace{-0.6cm}
-\end{center}
+		\setlength{\extrarowheight}{-7pt}
+    \begin{tabular*}
+      {0.95\textwidth}{@{\extracolsep{\fill}} p{0.5cm} p{18.0cm}}
+}{
+    \end{tabular*}
+    % \vspace{-0.2cm}
+  \end{center}
 }
 
-\newcommand*{\cvpuby}[7]{
-	\begin{flushright}\honortitlestyle{#7}\ \ \ \ \end{flushright} & \honortitlestyle{#1} \honortitlestyle{#2} \emph{\honortitlestyle{#4}} \honortitlestyle{#5} \honortitlestyle{#3} \honortitlestyle{#6}
-    \\
+\newcommand*{\cvpuby}[5]{
+	\item{\honortitlestyle{#1} \emph{\honortitlestyle{#3}} \honortitlestyle{#4} \honortitlestyle{#2} \honortitlestyle{#5}} 
+  % \vspace{-1cm}
 }
 
 % Define an environment for cvskill
