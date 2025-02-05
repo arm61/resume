@@ -644,6 +644,16 @@
   \end{center}
 }
 
+\newenvironment{benumerate}[1]{
+    \let\oldItem\item
+    \def\item{\addtocounter{enumi}{-2}\oldItem}
+    \begin{enumerate}[font=\honordatestyle,rightmargin=0cm,itemsep=-20pt,leftmargin=0.6cm]
+    \setcounter{enumi}{#1}
+    \addtocounter{enumi}{1}
+}{
+    \end{enumerate}
+}
+
 \newcommand*{\cvpub}[3]{
   \honordatestyle{#3} & \honorpositionstyle{#1}, \honortitlestyle{#2}
   \\
@@ -661,8 +671,8 @@
 \end{center}
 }
 
-\newcommand*{\cvpuby}[7]{
-	\begin{flushright}\honortitlestyle{#7}\ \ \ \ \end{flushright} & \honortitlestyle{#1} \honortitlestyle{#2} \emph{\honortitlestyle{#4}} \honortitlestyle{#5} \honortitlestyle{#3} \honortitlestyle{#6}
+\newcommand*{\cvpuby}[6]{
+	\item{\honortitlestyle{#1} \honortitlestyle{#2} \emph{\honortitlestyle{#4}} \honortitlestyle{#5} \honortitlestyle{#3} \honortitlestyle{#6}}
     \\
 }
 
