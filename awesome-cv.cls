@@ -568,6 +568,18 @@
     \multicolumn{2}{L{19cm}}{\descriptionstyle{#5}} 
   \end{tabular*}
 }
+% Define an entry of cv information
+% Usage: \cventryn{<position>}{<title>}{<location>}{<date>}
+\newcommand*{\cventryn}[4]{
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{14cm} R{5cm}}
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\} 
+  \end{tabular*}
+}
 
 % Define an environment for cventry
 \newenvironment{cventriesy}{
