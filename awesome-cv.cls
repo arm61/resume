@@ -307,8 +307,8 @@
 \newcommand*{\homepage}[1]{\def\@homepage{#1}}
 
 % Defines writer's grouppage (optional)
-% Usage: \groupage{<url>}
-\newcommand*{\groupage}[1]{\def\@groupage{#1}}
+% Usage: \grouppage{<url>}
+\newcommand*{\grouppage}[1]{\def\@grouppage{#1}}
 
 % Defines writer's github (optional)
 % Usage: \github{<github-nick>}
@@ -453,7 +453,7 @@
             {\@headersocialsep}
           \href{http://\@homepage}{\faHome\ \@homepage}
         }
-      \ifthenelse{\isundefined{\@groupage}}
+      \ifthenelse{\isundefined{\@grouppage}}
         {}
         {
           \ifbool{isstart}
@@ -461,7 +461,7 @@
               \setbool{istart}{false}
             }
             {\@headersocialsep}
-          \href{http://\@groupage}{\faAtom\ \@groupage}
+          \href{http://\@grouppage}{\faAtom\ \@grouppage}
         }
       \ifthenelse{\isundefined{\@github}}
         {}
