@@ -582,12 +582,13 @@
     \multicolumn{2}{L{19cm}}{\descriptionstyle{#5}} 
   \end{tabular*}
 }
+
 % Define an entry of cv information
 % Usage: \cventryn{<position>}{<title>}{<location>}{<date>}
 \newcommand*{\cventryn}[4]{
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{14cm} R{5cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{15cm} R{4cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
@@ -659,11 +660,28 @@
 	\\
 }
 
+\newenvironment{cvfunds}{
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{-7pt}
+    %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{1cm} p{18.0cm}}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{1.5cm} p{17.5cm}}
+}{
+    \end{tabular*}
+  \end{center}
+}
+
+
+\newcommand*{\cvfund}[5]{
+  \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} -- \honortitlestyle{\emph{#3} (\honortitlestyle{#5})}
+  \\
+}
+
 \newenvironment{cvpubs}{
   \begin{center}
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{2.cm} L{17.0cm}}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{2.cm} L{17.0cm}}
 }{
     \end{tabular*}
   \vspace{-0.2cm}
@@ -684,6 +702,7 @@
   \honordatestyle{#3} & \honorpositionstyle{#1}, \honortitlestyle{#2}
   \\
 }
+
 
 \newenvironment{cvpubys}{
 	\begin{center}
