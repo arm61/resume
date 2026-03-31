@@ -108,7 +108,7 @@
 %-------------------------------------------------------------------------------
 %% Page Layout
 % Configure page margins with geometry
-\geometry{left=1.cm, top=1.cm, right=1.cm, bottom=1.cm, footskip=.05cm}
+\geometry{left=2.cm, top=2.cm, right=2.cm, bottom=2.cm, footskip=.05cm}
 
 %% Header & Footer
 % Set offset to each header and offset
@@ -297,10 +297,6 @@
 % Defines writer's email (optional)
 % Usage: \email{<email adress>}
 \newcommand*{\email}[1]{\def\@email{#1}}
-
-% Defines writer's email (optional)
-% Usage: \email{<email adress>}
-\newcommand*{\emailb}[1]{\def\@emailb{#1}}
 
 % Defines writer's homepage (optional)
 % Usage: \homepage{<url>}
@@ -574,7 +570,7 @@
 \newcommand*{\cventry}[5]{
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{14cm} R{5cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{13cm} R{4cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
@@ -588,7 +584,7 @@
 \newcommand*{\cventryn}[4]{
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{15cm} R{4cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{13cm} R{4cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
@@ -596,99 +592,34 @@
   \end{tabular*}
 }
 
-% Define an environment for cventry
-\newenvironment{cventriesy}{
-  \begin{center}
-}{
-  \end{center}
-  \vspace{-0.5cm}
-}
-% Define an entry of cv information
-% Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
-\newcommand*{\cventryy}[1]{
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{3pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{19cm}}
-    \descriptionstyle{#1}  
-  \end{tabular*}
-}
-
-% Define an environment for cvsubentry
-\newenvironment{cvsubentries}{
-  \begin{center}
-}{
-  \end{center}
-}
-% Define a subentry of cv information
-% Usage: \cvsubentry{<position>}{<title>}{<date>}{<description>}
-\newcommand*{\cvsubentry}[4]{
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
-    \setlength\leftskip{0.2cm}
-    \subentrytitlestyle{#2} & \ifthenelse{\equal{#1}{}}
-      {\subentrydatestyle{#3}}{}
-    \ifthenelse{\equal{#1}{}}
-      {}
-      {\subentrypositionstyle{#1} & \subentrydatestyle{#3} \\}
-    \ifthenelse{\equal{#4}{}}
-      {}
-      {\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}} \\}
-  \end{tabular*}
-}
-
-% Define an environment for cvhonor
-\newenvironment{cvhonors}{
-  \begin{center}
-    \setlength\tabcolsep{0pt}
-    \setlength{\extrarowheight}{-7pt}
-    %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{1cm} p{18.0cm}}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{1.cm} p{13.0cm} p{3.cm}}
-}{
-    \end{tabular*}
-  \end{center}
-}
-% Define a line of cv information(honor, award or something else)
-% Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
-\newcommand*{\cvhonor}[4]{
-  \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3}
+% Usage: \cvpresentation{<position>}{<title>}{<location>}{<date>}
+\newcommand*{\cvpresentation}[4]{
+  \item[\honordatestyle{#4}]{\honorpositionstyle{#1}, \honortitlestyle{#2} \honorlocationstyle{@ #3}}
   \\
 }
-
-\newcommand*{\cvhonornb}[3]{
-	\honordatestyle{#3} & \honortitlestyle{#1} & \honorlocationstyle{#2}
-	\\
-}
-
-\newenvironment{cvfunds}{
-  \begin{center}
-    \setlength\tabcolsep{0pt}
-    \setlength{\extrarowheight}{-7pt}
-    %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{1cm} p{18.0cm}}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{1.5cm} p{17.5cm}}
-}{
-    \end{tabular*}
-  \end{center}
-}
-
 
 \newcommand*{\cvfund}[5]{
-  \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} -- \honortitlestyle{\emph{#3} (\honortitlestyle{#5})}
+  \item[\honordatestyle{#4}]{\honorpositionstyle{#1}, \honortitlestyle{#2} -- \honortitlestyle{\emph{#3} (\honortitlestyle{#5})}}
   \\
 }
 
-\newenvironment{cvpubs}{
-  \begin{center}
-    \setlength\tabcolsep{0pt}
-    \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{2.cm} L{17.0cm}}
+\newenvironment{monthenumerate}{
+    \let\oldItem\item
+    \def\item{\addtocounter{enumi}{-2}\oldItem}
+    \begin{itemize}[font=\honordatestyle,rightmargin=0cm,itemsep=-20pt,leftmargin=1.3cm]
 }{
-    \end{tabular*}
-  \vspace{-0.2cm}
-  \end{center}
+    \end{itemize}
 }
 
-\newenvironment{benumerate}[1]{
+\newenvironment{dayenumerate}{
+    \let\oldItem\item
+    \def\item{\addtocounter{enumi}{-2}\oldItem}
+    \begin{itemize}[font=\honordatestyle,rightmargin=0cm,itemsep=-20pt,leftmargin=1.7cm]
+}{
+    \end{itemize}
+}
+
+\newenvironment{paperenumerate}[1]{
     \let\oldItem\item
     \def\item{\addtocounter{enumi}{-2}\oldItem}
     \begin{enumerate}[font=\honordatestyle,rightmargin=0cm,itemsep=-20pt,leftmargin=0.6cm]
@@ -698,60 +629,27 @@
     \end{enumerate}
 }
 
-\newcommand*{\cvpub}[3]{
-  \honordatestyle{#3} & \honorpositionstyle{#1}, \honortitlestyle{#2}
+\newcommand*{\cvaward}[3]{
+  \item[\honordatestyle{#3}]{\honorpositionstyle{#1}, \honortitlestyle{#2}}
   \\
 }
 
-
-\newenvironment{cvpubys}{
-	\begin{center}
-		\setlength\tabcolsep{0pt}
-		\setlength{\extrarowheight}{-5pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{1cm} p{18.0cm}}
-    %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.cm} L{17.0cm}}
-		}{
-	\end{tabular*}
-  \vspace{-0.6cm}
-\end{center}
-}
-
-\newcommand*{\cvpuby}[6]{
+\newcommand*{\cvpaper}[6]{
 	\item{\honortitlestyle{#1} \honortitlestyle{#2} \emph{\honortitlestyle{#4}} \honortitlestyle{#5} \honortitlestyle{#3} \honortitlestyle{#6}}
     \\
 }
 
-% Define an environment for cvskill
+% Define an environment for cvskillx
 \newenvironment{cvskills}{
   \begin{center}
     \setlength\tabcolsep{1ex}
     \setlength{\extrarowheight}{-5pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{1.2cm} p{16.8cm}}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{2.3cm} p{13.7cm}}
 }{
     \end{tabular*}
   \end{center}
 }
-% Define an environment for cvskill
-\newenvironment{cvskillsy}{
-  \begin{center}
-    \setlength\tabcolsep{1ex}
-    \setlength{\extrarowheight}{-5pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{0.5cm} p{17.5cm}}
-}{
-    \end{tabular*}
-  \end{center}
-}
-% Define an environment for cvskillx
-\newenvironment{cvskillsx}{
-  \begin{center}
-    \setlength\tabcolsep{1ex}
-    \setlength{\extrarowheight}{-5pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} p{2.3cm} p{15.7cm}}
-}{
-    \end{tabular*}
-  \end{center}
-}
-% Define a line of cv information(skill)
+
 % Usage: \cvskill{<type>}{<skillset>}
 \newcommand*{\cvskill}[2]{
 	\skilltypestyle{#1} & \skillsetstyle{#2}
@@ -770,66 +668,4 @@
   \end{justify}
   \vspace{-2mm}
 }
-% Define an environment for cvitems(for cventry)
-\newenvironment{cvitemsy}{
-  \vspace{-4mm}
-  \begin{justify}
-  \begin{itemize}[leftmargin=2.5ex, nosep, noitemsep]
-    \setlength{\parskip}{0pt}
-    \renewcommand{\labelitemi}{--}
-}{
-  \end{itemize}
-  \end{justify}
-  \vspace{-2mm}
-}
 
-%-------------------------------------------------------------------------------
-%                Commands for elements of Cover Letter
-%-------------------------------------------------------------------------------
-% Define an environment for cvletter
-\newenvironment{cvletter}{
-  \lettertextstyle
-}{
-}
-
-% Define a paragraph for cvletter
-% Usage: \cvparagraph{<paragraph-title>}
-%\newcommand{\cvparagraph}[1]{
-%  \par\addvspace{2.5ex}
-%  \phantomsection{}
-%  \paragraphstyle{#1}
-%  \color{gray}\vhrulefill{0.9pt}
-%  \par\nobreak\addvspace{0.4ex}
-%}
-
-% Define a title of the cover letter
-% Usage: \makelettertitle
-\newcommand*{\makelettertitle}{
-  \vspace{8.4mm}
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
-    \recipienttitlestyle{\@recipientname} & \letterdatestyle{\@letterdate}
-  \end{tabular*}
-  \begin{singlespace}
-    \recipientaddressstyle{\@recipientaddress} \\\\
-  \end{singlespace}
-  \ifthenelse{\isundefined{\@lettertitle}}
-    {}
-    {\lettertitlestyle{\@lettertitle} \\}
-  \lettertextstyle{\@letteropening}
-}
-
-% Define a closing of the cover letter
-% Usage: \makeletterclosing
-\newcommand*{\makeletterclosing}{
-  \vspace{3.4mm}
-  \lettertextstyle{\@letterclosing} \\\\
-  \letternamestyle{\@firstname \@lastname}
-  \ifthenelse{\isundefined{\@letterenclosure}}
-    {\\}
-    {
-      \\\\\\
-      \letterenclosurestyle{\@letterenclname:  \@letterenclosure} \\
-    }
-}
