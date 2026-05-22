@@ -108,7 +108,7 @@
 %-------------------------------------------------------------------------------
 %% Page Layout
 % Configure page margins with geometry
-\geometry{left=2.cm, top=2.cm, right=2.cm, bottom=2.cm, footskip=.05cm}
+\geometry{left=2.5cm, top=2.5cm, right=2.5cm, bottom=2.5cm, footskip=.05cm}
 
 %% Header & Footer
 % Set offset to each header and offset
@@ -584,7 +584,7 @@
 \newcommand*{\cventryn}[4]{
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{13cm} R{4cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12cm} R{4cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
